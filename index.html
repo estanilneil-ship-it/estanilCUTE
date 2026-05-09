@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Neil Estanil | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Space Grotesk',sans-serif;
+    background:#0b1020;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top left,#4f46e5 0%,transparent 30%),
+    radial-gradient(circle at bottom right,#06b6d4 0%,transparent 30%);
+    z-index:-2;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:url("https://www.transparenttextures.com/patterns/cubes.png");
+    opacity:0.05;
+    z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(10,15,30,0.8);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    z-index:999;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#67e8f9;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav ul a:hover{
+    color:#67e8f9;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    padding:120px 8%;
+    gap:60px;
+}
+
+.hero-text h1{
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-text h1 span{
+    color:#67e8f9;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    margin-bottom:30px;
+    font-size:1.1rem;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 28px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-primary{
+    background:#67e8f9;
+    color:#0f172a;
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(103,232,249,0.4);
+}
+
+.btn-outline{
+    border:2px solid #67e8f9;
+    color:#67e8f9;
+}
+
+.btn-outline:hover{
+    background:#67e8f9;
+    color:#0f172a;
+}
+
+/* HERO IMAGE */
+
+.hero-image{
+    display:flex;
+    justify-content:center;
+}
+
+.image-box{
+    width:340px;
+    height:340px;
+    border-radius:30px;
+    overflow:hidden;
+    position:relative;
+    transform:rotate(5deg);
+    background:linear-gradient(135deg,#06b6d4,#4f46e5);
+    padding:6px;
+}
+
+.image-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:25px;
+}
+
+/* SECTIONS */
+
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    font-size:2.5rem;
+    margin-bottom:50px;
+    text-align:center;
+}
+
+.section-title span{
+    color:#67e8f9;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.about-card{
+    background:rgba(255,255,255,0.05);
+    padding:35px;
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.3s;
+}
+
+.about-card:hover{
+    transform:translateY(-10px);
+    border-color:#67e8f9;
+}
+
+.about-card i{
+    font-size:2rem;
+    color:#67e8f9;
+    margin-bottom:20px;
+}
+
+/* SKILLS */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.skill-box{
+    background:#111827;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.skill-box:hover{
+    transform:scale(1.05);
+    background:#1e293b;
+}
+
+.skill-box i{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.skill-box h3{
+    margin-bottom:10px;
+}
+
+/* PROJECTS */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    background:#111827;
+    border-radius:25px;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+}
+
+.project-top{
+    height:200px;
+    background:linear-gradient(135deg,#06b6d4,#4f46e5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:4rem;
+}
+
+.project-content{
+    padding:25px;
+}
+
+.project-content h3{
+    margin-bottom:15px;
+}
+
+.project-content p{
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
+
+.project-content a{
+    color:#67e8f9;
+    text-decoration:none;
+}
+
+/* CONTACT */
+
+.contact-container{
+    max-width:700px;
+    margin:auto;
+    display:grid;
+    gap:20px;
+}
+
+.contact-box{
+    background:#111827;
+    padding:25px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    transition:0.3s;
+    text-decoration:none;
+    color:white;
+}
+
+.contact-box:hover{
+    transform:translateX(10px);
+    background:#1e293b;
+}
+
+.contact-box i{
+    font-size:1.7rem;
+    color:#67e8f9;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#94a3b8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .hero-text h1{
+        font-size:3rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+    <div class="logo">NEIL.</div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+        <h1>Hello, I'm <span>Neil</span></h1>
+
+        <p>
+            1st Year IT Student passionate about web development,
+            UI design, and modern technology. I enjoy creating
+            responsive websites and improving my coding skills every day.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+                View Projects
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                Contact Me
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <div class="image-box">
+            <img src="https://scontent.fmnl25-5.fna.fbcdn.net/v/t39.30808-1/662334072_984718030660506_201577175341436530_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeGlsJGapTfdf3pnJNEMIDiBk9yHXs7wvciT3IdezvC9yMfW8R-ii_XQ768obFzEjXQ5sLV1WJahRicjAgPdvP5n&_nc_ohc=SM5mwlSQ2moQ7kNvwFwjGGp&_nc_oc=Ado0q0n0T5zEf0QbYn_bgfEPigwJYP-OzTyre4pnM0DlvWzVyV0xnRNLv6xsZONNmZw&_nc_zt=24&_nc_ht=scontent.fmnl25-5.fna&_nc_gid=-UAEhLgZyDSonapFOHBwpg&_nc_ss=7b2a8&oh=00_Af5iCYgq52Q8SjWLTuysv4XsBngovBu2nHdoerDXoz82Wg&oe=6A04E67F">
+        </div>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2 class="section-title">About <span>Me</span></h2>
+
+    <div class="about">
+
+        <div class="about-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Web Development</h3>
+            <p>
+                Creating responsive and modern websites using
+                HTML, CSS, and JavaScript.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <i class="fas fa-user-graduate"></i>
+            <h3>Student Journey</h3>
+            <p>
+                Currently studying Information Technology and
+                continuously learning new programming skills.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <h2 class="section-title">My <span>Skills</span></h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-box">
+            <i class="fab fa-html5" style="color:#f97316;"></i>
+            <h3>HTML5</h3>
+            <p>Semantic structure and web layout.</p>
+        </div>
+
+        <div class="skill-box">
+            <i class="fab fa-css3-alt" style="color:#38bdf8;"></i>
+            <h3>CSS3</h3>
+            <p>Responsive design and animations.</p>
+        </div>
+
+        <div class="skill-box">
+            <i class="fab fa-js" style="color:#facc15;"></i>
+            <h3>JavaScript</h3>
+            <p>Interactive web functionality.</p>
+        </div>
+
+        <div class="skill-box">
+            <i class="fab fa-github" style="color:white;"></i>
+            <h3>GitHub</h3>
+            <p>Project management and version control.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <h2 class="section-title">Featured <span>Projects</span></h2>
+
+    <div class="projects-grid">
+
+        <div class="project-card">
+
+            <div class="project-top">
+                <i class="fas fa-globe"></i>
+            </div>
+
+            <div class="project-content">
+                <h3>Portfolio Website</h3>
+
+                <p>
+                    Modern responsive portfolio website with
+                    clean UI and smooth effects.
+                </p>
+
+                <a href="https://github.com/" target="_blank">
+                    View Project →
+                </a>
+            </div>
+
+        </div>
+
+        <div class="project-card">
+
+            <div class="project-top">
+                <i class="fas fa-calculator"></i>
+            </div>
+
+            <div class="project-content">
+                <h3>Calculator App</h3>
+
+                <p>
+                    Functional calculator built using HTML,
+                    CSS, and JavaScript.
+                </p>
+
+                <a href="https://github.com/" target="_blank">
+                    View Project →
+                </a>
+            </div>
+
+        </div>
+
+        <div class="project-card">
+
+            <div class="project-top">
+                <i class="fas fa-user-plus"></i>
+            </div>
+
+            <div class="project-content">
+                <h3>Registration Form</h3>
+
+                <p>
+                    Interactive student registration form
+                    with modern UI design.
+                </p>
+
+                <a href="https://github.com/" target="_blank">
+                    View Project →
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <h2 class="section-title">Contact <span>Me</span></h2>
+
+    <div class="contact-container">
+
+        <a href="mailto:estanilneil@gmail.com" class="contact-box">
+            <i class="fas fa-envelope"></i>
+            <span>estanilneil@gmail.com</span>
+        </a>
+
+        <a href="https://www.facebook.com/share/1EpUsBLgqf/?mibextid=wwXIfr" target="_blank" class="contact-box">
+            <i class="fab fa-facebook"></i>
+            <span>Facebook Profile</span>
+        </a>
+
+        <a href="https://github.com/estanilneil-ship-it
+" target="_blank" class="contact-box">
+            <i class="fab fa-github"></i>
+            <span>GitHub Account</span>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    © 2026 Neil Estanil • All Rights Reserved
+</footer>
+
+</body>
+</html>
+
